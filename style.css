@@ -1,6 +1,6 @@
 /* ============================================================
-   ZEYNO — PREMIUM STYLE SYSTEM (V5)
-   Light Editorial Theme · Optimized for Stability
+   ZEYNO — STABILITY V6 (VISIBILITY RESCUE)
+   Editorial Aesthetics · Fault-Tolerant Reveal Logic
    ============================================================ */
 
 /* ── FONTS ── */
@@ -23,13 +23,11 @@ html {
 body {
     font-family: 'DM Sans', sans-serif;
     background-color: #F7F5F2;
-    /* Light luxury neutral */
     color: #0F0F0F;
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
-    opacity: 0;
-    /* Managed by GSAP launchSite() */
+    /* NO DEFAULT OPACITY: 0 — better for stability */
 }
 
 /* ── TOKENS ── */
@@ -280,8 +278,6 @@ body {
     letter-spacing: 0.3em;
     font-size: 0.7rem;
     margin-bottom: 1.5rem;
-    opacity: 0;
-    transform: translateY(20px);
 }
 
 .hero-title {
@@ -300,7 +296,6 @@ body {
 
 .hero-title .line span {
     display: block;
-    transform: translateY(112%);
 }
 
 .hero-title em {
@@ -314,8 +309,6 @@ body {
     font-size: 1.25rem;
     color: #444;
     max-width: 580px;
-    opacity: 0;
-    transform: translateY(20px);
     line-height: 1.5;
 }
 
@@ -327,8 +320,6 @@ body {
     font-size: 0.65rem;
     letter-spacing: 0.25em;
     color: #999;
-    opacity: 0;
-    transform: translateY(20px);
     margin-top: 4rem;
 }
 
@@ -369,17 +360,7 @@ section {
 }
 
 /* ── REVEAL SYSTEM ── */
-.reveal,
-.stat-item,
-.footer-brand,
-.footer-col,
-#logos,
-.work-card,
-.pricing-card,
-.testi-card {
-    opacity: 0;
-    transform: translateY(35px);
-}
+/* NO DEFAULT OPACITY: 0 HERE. We handle hiding in JS via gsasp.set() to avoid "blind" sites if JS fails. */
 
 /* ── PROCESS ── */
 #process {
@@ -401,6 +382,7 @@ section {
     gap: 3rem;
     padding: 0 var(--px);
     will-change: transform;
+    transition: transform 0.1s linear;
 }
 
 .process-card {
@@ -413,7 +395,22 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: var(--card-bg, var(--accent));
+    /* FALLBACKS */
+    background-color: var(--accent);
+}
+
+/* Explicit overrides for colors to be safer than inline variables */
+.process-card:nth-child(3) {
+    background-color: #111;
+}
+
+.process-card:nth-child(4) {
+    background-color: #1a1a1a;
+}
+
+.process-card.buffer-card {
+    background-color: #F7F5F2 !important;
+    color: #0F0F0F;
 }
 
 .card-badge {
@@ -445,11 +442,6 @@ section {
     text-transform: uppercase;
 }
 
-.buffer-card {
-    background: #F7F5F2 !important;
-    color: #0F0F0F;
-}
-
 /* ── WORK GRID ── */
 .work-grid {
     display: grid;
@@ -463,6 +455,7 @@ section {
     overflow: hidden;
     aspect-ratio: 4/5;
     cursor: none;
+    background: #eee;
 }
 
 .work-card-bg {
@@ -684,7 +677,7 @@ section {
 
 .modal-box {
     background: #fff;
-    padding: 5rem;
+    padding: 4rem;
     border-radius: 32px;
     width: 100%;
     max-width: 650px;
@@ -693,8 +686,8 @@ section {
 
 .modal-close {
     position: absolute;
-    top: 2.5rem;
-    right: 2.5rem;
+    top: 2rem;
+    right: 2rem;
     font-size: 1.5rem;
     cursor: none;
     background: none;
@@ -771,28 +764,7 @@ section {
         font-size: 3.8rem;
     }
 
-    .work-grid,
-    .stats-grid,
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
-    .process-card {
-        width: 320px;
-        height: 480px;
-        padding: 3rem;
-    }
-
-    .card-title {
-        font-size: 2rem;
-    }
-
-    #stats {
-        padding: 0 var(--px);
-    }
-
-    .stat-num {
-        font-size: 3.5rem;
+    #nav {
+        width: calc(100% - 2rem);
     }
 }
