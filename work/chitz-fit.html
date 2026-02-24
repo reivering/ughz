@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHITZ.FIT — ZEYNO</title>
+  <meta name="description"
+    content="How ZEYNO built a high-conversion web system for CHITZ.FIT, streamlining their fitness coaching empire.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+  <div id="cursor"></div>
+  <div id="progress"></div>
+
+  <!-- ── NAV ── -->
+  <nav id="nav" class="nav-visible" role="navigation" aria-label="Main navigation">
+    <div class="nav-pill">
+      <a href="../index.html" class="nav-logo">ZEYN<span>O</span></a>
+      <div class="nav-links">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#process">Process</a>
+        <a href="../index.html#pricing">Pricing</a>
+      </div>
+      <button class="nav-cta open-modal">Let's Talk →</button>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── MOBILE NAV ── -->
+  <div id="mobile-nav" aria-hidden="true">
+    <button class="mobile-nav-close" id="mobile-nav-close">Close ✕</button>
+    <nav class="mobile-nav-links">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#process">Process</a>
+      <a href="../index.html#pricing">Pricing</a>
+    </nav>
+    <button class="mobile-nav-cta open-modal">Let's Talk →</button>
+  </div>
+
+  <!-- ── HERO ── -->
+  <div class="case-hero">
+    <div class="case-hero-bg">
+      <video src="../assets/chitz.mp4" autoplay muted loop playsinline preload="auto"></video>
+    </div>
+    <div class="case-hero-overlay"></div>
+    <div class="case-eyebrow">Case Study · Fitness &amp; Coaching</div>
+    <h1 class="case-title">CHITZ.FIT</h1>
+    <p class="case-tagline">Streamlining a fitness empire through high-conversion web architecture and a unified digital
+      hub.</p>
+    <div class="case-meta-bar">
+      <div>
+        <div class="case-meta-label">Services</div>
+        <div class="case-meta-val">Branding · Web Development</div>
+      </div>
+      <div>
+        <div class="case-meta-label">Industry</div>
+        <div class="case-meta-val">Fitness &amp; Coaching</div>
+      </div>
+      <div>
+        <div class="case-meta-label">Location</div>
+        <div class="case-meta-val">Malaysia</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PROBLEM ── -->
+  <div class="case-section">
+    <div class="case-section-inner">
+      <div class="section-label">The Problem</div>
+      <h2>Scattered traffic.<br>Lost leads.</h2>
+      <p>CHITZ.FIT had built a strong following across Instagram, but their digital infrastructure was holding them
+        back. Potential clients were being lost across multiple DMs, a fragmented link-in-bio, and a lack of any
+        centralised booking or lead capture system.</p>
+      <p>Without a proper digital home, every coaching inquiry was a manual effort — costing them hours weekly and
+        leaving money on the table. They needed a system, not just a website.</p>
+    </div>
+  </div>
+
+  <!-- ── SOLUTION ── -->
+  <div class="case-section">
+    <div class="case-section-inner">
+      <div class="section-label">The Solution</div>
+      <h2>One hub.<br>Zero friction.</h2>
+      <p>We designed and built a centralised web platform that does the heavy lifting — automatically screening leads,
+        booking consultations, and showcasing their coaching programmes in a high-conversion layout.</p>
+      <p>The new site replaced the patchwork of links and manual DMs with a single, fast, beautifully branded digital
+        presence that converts visitors into paying clients on autopilot.</p>
+      <div class="case-stats">
+        <div>
+          <div class="case-stat-val">400%</div>
+          <div class="case-stat-lbl">Increase in engagement</div>
+        </div>
+        <div>
+          <div class="case-stat-val">80%</div>
+          <div class="case-stat-lbl">Reduction in manual screening time</div>
+        </div>
+        <div>
+          <div class="case-stat-val">3×</div>
+          <div class="case-stat-lbl">More qualified leads monthly</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── QUOTE ── -->
+  <div class="case-quote">
+    <blockquote>"It's not just a website. <em>It's a system.</em>"</blockquote>
+  </div>
+
+  <!-- ── CTA ── -->
+  <div class="case-cta">
+    <div class="case-cta-inner">
+      <h2>Ready to upgrade<br>your digital presence?</h2>
+      <div style="display:flex; gap: 1rem; flex-wrap: wrap;">
+        <button class="btn-primary open-modal">Start a Project →</button>
+        <a href="../index.html#work" class="case-back">← Back to Dashboard</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer id="footer">
+    <div class="footer-bottom" style="padding-top: 0; border: none;">
+      <p class="footer-copy">© 2025 ZEYNO. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="#" class="footer-social-link" aria-label="Instagram">IG</a>
+        <a href="#" class="footer-social-link" aria-label="Twitter">X</a>
+        <a href="mailto:hello@zeyno.my" class="footer-social-link" aria-label="Email">@</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── MODAL ── -->
+  <div id="modal-overlay" role="dialog" aria-modal="true" aria-label="Contact form" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close">✕</button>
+      <h2 class="modal-title">Let's Talk.</h2>
+      <p class="modal-sub">Tell us about your project and we'll get back to you within one business day.</p>
+      <form id="contact-form" method="POST" action="https://formspree.io/f/mykdbrqv">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input class="form-input" type="text" id="name" name="name" placeholder="e.g. Ahmad Fikri" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="service">What do you need?</label>
+          <select class="form-select" id="service" name="service" required>
+            <option value="" disabled selected>Select a service...</option>
+            <option value="branding">Branding — RM 2,000+</option>
+            <option value="webdev">Web Development — RM 1,000+</option>
+            <option value="social">Social &amp; SEO — RM 2,000/mo</option>
+            <option value="fullpackage">Full Package — Custom Quote</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Tell us about your project</label>
+          <textarea class="form-textarea" id="message" name="message"
+            placeholder="What's the brand? What's the goal? What's the timeline?"></textarea>
+        </div>
+        <button type="submit" class="form-submit" id="form-submit">Send Message →</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="../main.js"></script>
+
+</body>
+
+</html>
