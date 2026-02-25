@@ -85,7 +85,7 @@ export default function CaseStudyPage() {
       <div className="w-full h-[100svh] pointer-events-none opacity-0"></div>
 
       {/* 2. Content Section (Slides up and covers) */}
-      <section className="relative w-full py-32 md:py-48 px-6 md:px-12 bg-[#fcfcfc] text-[#111] rounded-t-[40px] md:rounded-t-[80px] z-10 shadow-[0_-20px_60px_-15px_rgba(0,0,0,0.5)]">
+      <section className="relative w-full py-32 md:py-48 px-6 md:px-12 bg-gradient-to-br from-[#fcfcfc] via-[#f9f9f9] to-[#f4f4f4] text-[#111] rounded-t-[40px] md:rounded-t-[80px] z-10 shadow-[0_-20px_60px_-15px_rgba(0,0,0,0.5)]">
         <div className="max-w-6xl mx-auto flex flex-col gap-32">
           
           {/* Problem */}

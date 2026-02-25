@@ -13,10 +13,23 @@ export default function PricingPage() {
   const headerY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
   return (
-    <main className="flex flex-col w-full min-h-screen bg-[#fcfcfc]" ref={containerRef}>
+    <main className="flex flex-col w-full min-h-screen bg-gradient-to-b from-[#fcfcfc] via-[#f9f9f9] to-[#f4f4f4] overflow-hidden" ref={containerRef}>
       
-      {/* Dynamic Colored Background Blob */}
-      <div className="fixed top-0 left-1/4 w-[60vw] h-[60vw] bg-[#FF661A]/10 mix-blend-multiply blur-[120px] rounded-full pointer-events-none -z-10 animate-pulse" style={{ animationDuration: '8s' }} />
+      {/* Dynamic Colored Background Blobs */}
+      <div className="fixed top-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-[#FF661A]/10 mix-blend-multiply blur-[120px] rounded-full pointer-events-none z-0 animate-[pulse_8s_ease-in-out_infinite]" />
+      <div className="fixed bottom-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-[#FF661A]/8 mix-blend-multiply blur-[100px] rounded-full pointer-events-none z-0 animate-[pulse_10s_ease-in-out_infinite_reverse]" />
+
+      {/* Floating Geometry */}
+      <motion.div 
+        animate={{ rotate: 360, y: [0, 20, 0] }}
+        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+        className="fixed top-[20%] left-[10%] w-32 h-32 border-[1px] border-[#FF661A]/20 rounded-full pointer-events-none z-0"
+      />
+      <motion.div 
+        animate={{ rotate: -360, x: [0, -30, 0] }}
+        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+        className="fixed bottom-[20%] right-[10%] w-64 h-64 border-[1px] border-[#FF661A]/10 rounded-full pointer-events-none z-0"
+      />
 
       {/* Hero Header */}
       <section className="relative w-full pt-32 md:pt-48 pb-16 md:pb-24 px-6 md:px-12 flex flex-col justify-center overflow-hidden">
