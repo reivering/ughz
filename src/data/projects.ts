@@ -126,5 +126,37 @@ export const projects = {
       { value: "5×", label: "Social traction in launch week" }
     ],
     quote: "Bold design for a bold generation."
+  },
+  "cyril": {
+    slug: "cyril",
+    title: "CYRIL'S PORTFOLIO",
+    eyebrow: "Case Study · Personal Branding",
+    tagline: "Crafting a standout personal brand and portfolio that positions Cyril as a creative force in the industry.",
+    video: "/cyril.mp4",
+    meta: [
+      { label: "Services", value: "Personal Branding · Portfolio" },
+      { label: "Industry", value: "Creative Professional" },
+      { label: "Location", value: "Malaysia" }
+    ],
+    problem: {
+      title: "Talent without\na platform.",
+      desc: [
+        "Cyril had the skills, the vision, and the drive — but no digital presence that reflected any of it. Without a portfolio, every opportunity required a cold pitch, a patchwork of links, and a hope that the work would speak for itself.",
+        "In a world where perception is everything, having no portfolio meant being invisible to the clients and collaborators that mattered most."
+      ]
+    },
+    solution: {
+      title: "A portfolio that\nspeaks volumes.",
+      desc: [
+        "We designed and built a portfolio experience that doesn't just display work — it tells a story. Every section is crafted to guide visitors through Cyril's creative journey, building credibility and intrigue with every scroll.",
+        "The result is a living, breathing digital identity that works around the clock — attracting opportunities, showcasing range, and positioning Cyril as a serious creative professional."
+      ]
+    },
+    stats: [
+      { value: "10×", label: "More inbound inquiries" },
+      { value: "100%", label: "Custom-built experience" },
+      { value: "24/7", label: "Always-on personal brand" }
+    ],
+    quote: "Your portfolio is your loudest introduction."
   }
 };
