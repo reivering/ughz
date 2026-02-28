@@ -89,9 +89,8 @@ export default function Footer() {
 
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end border-t border-white/[0.06] pt-8 gap-8 z-10 relative">
         <div className="flex gap-6 text-sm md:text-base text-white/30">
-          <Link href="https://instagram.com/zeyno" className="hover:text-[#FF661A] transition-colors">Instagram</Link>
-          <Link href="https://dribbble.com/zeyno" className="hover:text-[#FF661A] transition-colors">Dribbble</Link>
-          <Link href="https://linkedin.com/company/zeyno" className="hover:text-[#FF661A] transition-colors">LinkedIn</Link>
+          <Link href="https://instagram.com/studio.zeyno" className="hover:text-[#FF661A] transition-colors">Instagram</Link>
+          <Link href="https://www.linkedin.com/company/zeyno-studio" className="hover:text-[#FF661A] transition-colors">LinkedIn</Link>
         </div>
         <div className="flex gap-6 text-sm text-white/20 flex-col md:flex-row items-start md:items-center">
           <div className="flex gap-6">
