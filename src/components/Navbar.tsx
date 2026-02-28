@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { useContact } from "@/context/ContactContext";
 
 export function Navbar() {
   const { scrollY } = useScroll();
@@ -11,6 +12,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { openContactForm } = useContact();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() || 0;
@@ -40,8 +42,8 @@ export function Navbar() {
         animate={hidden ? "hidden" : "visible"}
         transition={{ duration: 0.35, ease: "easeInOut" }}
         className={`fixed top-0 left-0 right-0 z-[60] flex items-center justify-between px-6 py-5 md:px-12 transition-all duration-500 ${scrolled
-            ? "bg-black/60 backdrop-blur-xl border-b border-white/[0.06]"
-            : "bg-transparent"
+          ? "bg-black/60 backdrop-blur-xl border-b border-white/[0.06]"
+          : "bg-transparent"
           }`}
       >
         <Link href="/" className="text-xl font-medium tracking-tight text-white hover:text-[#FF661A] transition-colors duration-300">
@@ -53,12 +55,12 @@ export function Navbar() {
           <NavLink href="/#services" label="Services" active={false} />
           <NavLink href="/#work" label="Work" active={false} />
           <NavLink href="/pricing" label="Pricing" active={pathname === '/pricing'} />
-          <a
-            href="mailto:hello@zeyno.my"
+          <button
+            onClick={openContactForm}
             className="ml-4 px-5 py-2 rounded-full bg-[#FF661A] text-white text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300 glow-brand hover:shadow-none"
           >
             Contact
-          </a>
+          </button>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -126,9 +128,9 @@ export function Navbar() {
             <div className="mt-auto mb-12 flex flex-col gap-4 relative z-10">
               <div className="h-[1px] bg-gradient-to-r from-[#FF661A]/40 to-transparent mb-6" />
               <p className="text-white/30 text-sm uppercase tracking-widest">Get in touch</p>
-              <a href="mailto:hello@zeyno.my" className="text-2xl text-[#FF661A] hover:text-white transition-colors">
+              <button onClick={() => { setMenuOpen(false); openContactForm(); }} className="text-2xl text-[#FF661A] hover:text-white transition-colors">
                 hello@zeyno.my
-              </a>
+              </button>
             </div>
           </motion.div>
         )}

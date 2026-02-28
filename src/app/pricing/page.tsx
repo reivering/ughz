@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { useContact } from "@/context/ContactContext";
 
 export default function PricingPage() {
   const containerRef = useRef(null);
@@ -148,6 +149,8 @@ export default function PricingPage() {
 }
 
 function PricingCard({ title, price, suffix, desc, features, featured = false, number, delay }: { title: string; price: string; suffix: string; desc: string; features: string[]; featured?: boolean; number: string; delay: number }) {
+  const { openContactForm } = useContact();
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -155,8 +158,8 @@ function PricingCard({ title, price, suffix, desc, features, featured = false, n
       viewport={{ once: true, margin: "-10%" }}
       transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
       className={`relative flex flex-col p-6 md:p-10 rounded-2xl border transition-all duration-500 overflow-hidden ${featured
-          ? 'bg-[#FF661A]/[0.08] text-white border-[#FF661A]/40 glow-brand'
-          : 'bg-white/[0.02] text-white border-white/[0.06] hover:border-white/15'
+        ? 'bg-[#FF661A]/[0.08] text-white border-[#FF661A]/40 glow-brand'
+        : 'bg-white/[0.02] text-white border-white/[0.06] hover:border-white/15'
         }`}
     >
       {/* Top accent bar */}
@@ -193,15 +196,15 @@ function PricingCard({ title, price, suffix, desc, features, featured = false, n
         ))}
       </ul>
 
-      <a
-        href="mailto:hello@zeyno.my"
+      <button
+        onClick={openContactForm}
         className={`w-full py-3.5 md:py-4 rounded-full font-medium transition-all duration-300 text-center text-sm block ${featured
-            ? 'bg-[#FF661A] text-white hover:bg-white hover:text-black glow-brand hover:shadow-none'
-            : 'bg-white/10 text-white hover:bg-[#FF661A] hover:text-white'
+          ? 'bg-[#FF661A] text-white hover:bg-white hover:text-black glow-brand hover:shadow-none'
+          : 'bg-white/10 text-white hover:bg-[#FF661A] hover:text-white'
           }`}
       >
         Get Started →
-      </a>
+      </button>
     </motion.div>
   );
 }

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Sparkle } from "lucide-react";
 import dynamic from "next/dynamic";
 import { useRef } from "react";
+import { useContact } from "@/context/ContactContext";
 
 const InversionLens = dynamic(() => import("@/components/InversionLens"), {
   ssr: false,
@@ -29,6 +30,7 @@ function RevealSection({ children, className = "", delay = 0 }: { children: Reac
 }
 
 export default function Home() {
+  const { openContactForm } = useContact();
   const { scrollYProgress } = useScroll();
 
   const heroY = useTransform(scrollYProgress, [0, 0.5], [0, 150]);
@@ -128,11 +130,12 @@ export default function Home() {
                 View Our Work
               </button>
             </Link>
-            <Link href="#contact" className="w-full sm:w-auto">
-              <button className="w-full border border-white/20 text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 backdrop-blur-sm text-sm sm:text-base">
-                Let&apos;s Talk
-              </button>
-            </Link>
+            <button
+              onClick={openContactForm}
+              className="w-full sm:w-auto border border-white/20 text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 backdrop-blur-sm text-sm sm:text-base"
+            >
+              Let&apos;s Talk
+            </button>
           </motion.div>
         </motion.div>
 
@@ -414,12 +417,12 @@ export default function Home() {
                 <h3 className="text-xl md:text-3xl font-bold tracking-tight mb-2">Need something custom?</h3>
                 <p className="text-white/40 text-base md:text-lg">Full-stack projects, retainers, or multi-service bundles — let&apos;s build a plan that fits.</p>
               </div>
-              <a
-                href="mailto:hello@zeyno.my"
+              <button
+                onClick={openContactForm}
                 className="w-full md:w-auto text-center bg-[#FF661A] text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-all duration-300 whitespace-nowrap glow-brand hover:shadow-none"
               >
                 Get a Quote →
-              </a>
+              </button>
             </div>
           </RevealSection>
         </div>
@@ -549,6 +552,8 @@ function ProcessCard({ icon, title, timeline, description, number, delay }: { ic
 }
 
 function PricingCard({ name, price, featured, features }: { name: string; price: string; featured?: boolean; features: string[] }) {
+  const { openContactForm } = useContact();
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -582,15 +587,15 @@ function PricingCard({ name, price, featured, features }: { name: string; price:
           </li>
         ))}
       </ul>
-      <a
-        href="mailto:hello@zeyno.my"
+      <button
+        onClick={openContactForm}
         className={`w-full py-3.5 md:py-4 rounded-full font-bold uppercase tracking-widest text-sm text-center transition-all duration-300 block ${featured
           ? "bg-[#FF661A] text-white hover:bg-white hover:text-black glow-brand hover:shadow-none"
           : "bg-white/10 text-white hover:bg-[#FF661A] hover:text-white"
           }`}
       >
         Get Started
-      </a>
+      </button>
     </motion.div>
   );
 }
