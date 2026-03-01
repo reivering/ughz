@@ -1,4 +1,18 @@
-export const projects = {
+export interface Project {
+  slug: string;
+  title: string;
+  eyebrow: string;
+  tagline: string;
+  video: string;
+  meta: { label: string; value: string }[];
+  externalLink?: string;
+  problem: { title: string; desc: string[] };
+  solution: { title: string; desc: string[] };
+  stats: { value: string; label: string }[];
+  quote: string;
+}
+
+export const projects: Record<string, Project> = {
   "sahr": {
     slug: "sahr",
     title: "NOW BY SAHR KHIMJI",
@@ -10,6 +24,7 @@ export const projects = {
       { label: "Industry", value: "Luxury Fashion Boutique" },
       { label: "Location", value: "India · Worldwide" }
     ],
+    externalLink: "https://sahrkhimjinow.in",
     problem: {
       title: "A known boutique.\nInvisible online.",
       desc: [
@@ -42,6 +57,7 @@ export const projects = {
       { label: "Industry", value: "Fitness & Coaching" },
       { label: "Location", value: "Malaysia" }
     ],
+    externalLink: "https://chitz.fit",
     problem: {
       title: "Scattered traffic.\nLost leads.",
       desc: [
@@ -138,6 +154,7 @@ export const projects = {
       { label: "Industry", value: "Creative Professional" },
       { label: "Location", value: "Malaysia" }
     ],
+    externalLink: "https://cyril.lat",
     problem: {
       title: "Talent without\na platform.",
       desc: [

@@ -2,14 +2,14 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { notFound, useParams } from "next/navigation";
-import { projects } from "@/data/projects";
+import { projects, Project } from "@/data/projects";
 import Link from "next/link";
 import { use } from "react";
 
 export default function CaseStudyPage() {
   const params = useParams();
   const slug = params?.slug as string;
-  const project = projects[slug as keyof typeof projects];
+  const project = projects[slug] as Project;
 
   const { scrollYProgress } = useScroll();
   const heroY = useTransform(scrollYProgress, [0, 0.5], [0, 150]);
@@ -21,7 +21,7 @@ export default function CaseStudyPage() {
 
   return (
     <main className="w-full relative bg-[#0d0d0d]">
-      
+
       {/* 1. Hero Section (Sticky at back) */}
       <section className="sticky top-0 w-full h-[100svh] flex flex-col justify-end p-6 md:p-12 overflow-hidden bg-black z-0">
         <motion.div style={{ scale: videoScale }} className="absolute inset-0 w-full h-full z-0 pointer-events-none">
@@ -34,12 +34,12 @@ export default function CaseStudyPage() {
             className="w-full h-full object-cover filter brightness-[0.7]"
           />
         </motion.div>
-        
+
         {/* Colorful Gradient Overlay */}
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black via-black/40 to-transparent z-0" />
-        
+
         <motion.div style={{ y: heroY }} className="relative z-10 flex flex-col items-start text-white max-w-5xl mb-12">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
@@ -47,7 +47,7 @@ export default function CaseStudyPage() {
           >
             {project.eyebrow}
           </motion.div>
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
@@ -55,7 +55,7 @@ export default function CaseStudyPage() {
           >
             {project.title}
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
@@ -63,10 +63,27 @@ export default function CaseStudyPage() {
           >
             {project.tagline}
           </motion.p>
+          {project.externalLink && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-8"
+            >
+              <a
+                href={project.externalLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#FF661A] text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-all duration-300 glow-brand hover:shadow-none"
+              >
+                Visit the Website →
+              </a>
+            </motion.div>
+          )}
         </motion.div>
 
         {/* Meta Bar */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -87,7 +104,7 @@ export default function CaseStudyPage() {
       {/* 2. Content Section (Slides up and covers) */}
       <section className="relative w-full py-32 md:py-48 px-6 md:px-12 bg-gradient-to-br from-[#fcfcfc] via-[#f9f9f9] to-[#f4f4f4] text-[#111] rounded-t-[40px] md:rounded-t-[80px] z-10 shadow-[0_-20px_60px_-15px_rgba(0,0,0,0.5)]">
         <div className="max-w-6xl mx-auto flex flex-col gap-32">
-          
+
           {/* Problem */}
           <div className="flex flex-col md:flex-row gap-12 md:gap-24">
             <div className="w-full md:w-1/3">
@@ -129,7 +146,7 @@ export default function CaseStudyPage() {
         {/* Stats Grid */}
         <div className="max-w-6xl mx-auto mt-32 md:mt-48 grid grid-cols-1 md:grid-cols-3 gap-12 border-y border-[#eaeaea] py-24">
           {project.stats.map((stat, idx) => (
-            <motion.div 
+            <motion.div
               key={idx}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -156,8 +173,18 @@ export default function CaseStudyPage() {
           </h2>
         </div>
 
-        <div className="flex justify-center mt-12 pb-24">
-          <Link href="/#work" className="bg-[#111] text-white px-8 py-4 rounded-full font-medium hover:bg-[#FF661A] transition-colors duration-300">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-12 pb-24">
+          {project.externalLink && (
+            <a
+              href={project.externalLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto text-center bg-[#FF661A] text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-all duration-300 glow-brand hover:shadow-none"
+            >
+              Visit the Website →
+            </a>
+          )}
+          <Link href="/#work" className="w-full sm:w-auto text-center bg-[#111] text-white px-10 py-4 rounded-full font-medium hover:bg-[#FF661A] transition-colors duration-300">
             ← Back to Dashboard
           </Link>
         </div>
